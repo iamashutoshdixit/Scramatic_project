@@ -1,0 +1,109 @@
+{%extends 'admin_base.html'%}
+
+{% block main %}
+
+
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        
+        <h5 Style="border-bottom : 2px solid orange">edit Education Detail</h5>
+        <div class="container-fluid">
+            <form method="post">
+                {% csrf_token %}
+            <table class="table table-bordered">
+                <tr>
+                    <th>PostGraduation Course Name</th>
+                    <td><input type="text" name="pgcourse" class ="form-control" value="{{education.coursepg}}"</td>
+                </tr>
+
+                <tr>
+                    <th>PostGraduation College Name </th>
+                    <td><input type="text" name="pgcollege" class ="form-control" value="{{education.Schoolclgpg}}"</td>
+                </tr>
+
+                <tr>
+                    <th>Year Of Passing PG</th>
+                    <td><input type="text" name="pgyof" class ="form-control" value="{{education.yearofpassingpg}}"</td>
+                </tr>
+
+                <tr>
+                    <th>PostGraduation Percentage</th>
+                    <td><input type="text" name="pgper" class ="form-control" value="{{education.percentagepg}}"</td>
+                </tr>
+
+                <tr>
+                    <th>Graduation Course Name</th>
+                    <td><input type="text" name="gracourse" class ="form-control" value="{{education.coursegra}}"</td>
+                </tr>
+
+                <tr>
+                    <th>Graduation College Name </th>
+                    <td><input type="text" name="gracollege" class ="form-control" value="{{education.Schoolclggra}}"</td>
+                </tr>
+
+                <tr>
+                    <th>Year Of Passing Graduation</th>
+                    <td><input type="text" name="grayof" class ="form-control" value="{{education.yearofpassinggra}}"</td>
+                </tr>
+
+                <tr>
+                    <th>Graduation Percentage</th>
+                    <td><input type="text" name="graper" class ="form-control" value="{{education.percentagegra}}"</td>
+                </tr>
+
+                <tr>
+                    <th>SSC Course Name</th>
+                    <td><input type="text" name="ssccourse" class ="form-control" value="{{education.coursessc}}"</td>
+                </tr>
+
+                <tr>
+                    <th>SSC College Name </th>
+                    <td><input type="text" name="ssccollege" class ="form-control" value="{{education.Schoolclgssc}}"</td>
+                </tr>
+
+                <tr>
+                    <th>Year Of Passing SSC</th>
+                    <td><input type="text" name="sscyof" class ="form-control" value="{{education.yearofpassingssc}}"</td>
+
+                <tr>
+                    <th>SSC Percentage</th>
+                    <td><input type="text" name="sscper" class ="form-control" value="{{education.percentagessc}}"</td>
+                </tr>
+                
+                <tr>
+                    <th>HSC Course Name</th>
+                    <td><input type="text" name="hsccourse" class ="form-control" value="{{education.coursehsc}}"</td>
+                </tr>
+
+                <tr>
+                    <th>HSC College Name </th>
+                    <td><input type="text" name="hsccollege" class ="form-control" value="{{education.Schoolclghsc}}"</td>
+                </tr>
+
+                <tr>
+                    <th>Year Of Passing HSC</th>
+                    <td><input type="text" name="hscyof" class ="form-control" value="{{education.yearofpassinghsc}}"</td>
+                </tr>
+
+                <tr>
+                    <th>HSC Percentage</th>
+                    <td><input type="text" name="hscper" class ="form-control" value="{{education.percentagehsc}}"</td>
+                </tr>
+                
+            </table>
+            <center><input type="submit" value="Submit" class="btn btn-primary m-2"></center>
+        </form>
+        </div>
+    </div>
+</div> 
+{% if error == "no" %}
+<script>
+    
+    window.location = '{% url 'edit_education1' education.user.id %}';
+ </script>
+ 
+{% endif %}
+
+
+{% endblock %}

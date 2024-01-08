@@ -1,0 +1,117 @@
+{%include 'header.html'%}
+{% load static%}
+<link rel="stylesheet" href="{%static 'css/login.css'%}">
+
+<body style="background-image: url({% static 'images/2.png' %})">
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 Style="border-bottom : 2px solid orange">Apply for a job in our Company </h5>
+        <div class="container-fluid">
+            <form method="post" name="Apply">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter your Full Name" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Email ID</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Your Email Adress"  required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Date of Birth</label><br>
+                            <input type="date" name="dob" data-date-inline-picker="true" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Contact No</label>
+                            <input type="text" name="contactNo" class="form-control" placeholder="Enter Your Contact No" pattern="[0-9]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="Address" class="form-control" placeholder="Enter Your Address" pattern="[A-Za-z0-9]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="City" class="form-control" placeholder="Enter Your City" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" name="state" class="form-control" placeholder="Enter Your state" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" name="Country" class="form-control" placeholder="Enter Your Country" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div> 
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>School Name</label>
+                            <input type="text" name="School_Name" class="form-control" placeholder="Enter Your School Name" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Your 10th Marks in %</label>
+                            <input type="text" name="Marks10th" class="form-control" placeholder="Enter Your 10th marks in %" pattern="[0-9%]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Your 12th Marks in %</label>
+                            <input type="text" name="Marks12th" class="form-control" placeholder="Enter Your 12th marks in %" pattern="[0-9%]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>College Name</label>
+                            <input type="text" name="College_Name" class="form-control" placeholder="Enter Your College Name" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Your Graduation Score in CGPA</label>
+                            <input type="text" name="graduation_marks" class="form-control" placeholder="Enter Your CGPA in your graduation" pattern="[0-9.]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Backlogs</label>
+                            <input type="text" name="backlogs" class="form-control" placeholder="Enter the Number of active backlogs" pattern="[0-9]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Upload Your Resume(supported only pdf format):-</label>
+                            <label for="myfile">Select a file:</label>
+                            <input type="file" id="myfile" name="myfile" required/>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="submit" class="m-2 px-3 btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div> 
+
+{% if error == "no" %}
+<script>
+    alert('you have Applied for a job successfully');
+    // window.location = '{% url 'index' %}';
+ </script>
+ 
+{% endif %}
